@@ -24,7 +24,8 @@ defmodule Modulr.MixProject do
   defp deps do
     [
       {:ex_doc, "~> 0.18.0", only: :dev, runtime: false},
-      {:httpotion, "~> 3.1.0"}
+      {:httpotion, "~> 3.1.0"},
+      {:poison, "~> 3.0"}
     ]
   end
 

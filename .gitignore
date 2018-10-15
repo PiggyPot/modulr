@@ -22,3 +22,5 @@ erl_crash.dump
 # Ignore package tarball (built via "mix hex.build").
 modulr-*.tar
 
+# Ignore secret file
+config/secret.exs

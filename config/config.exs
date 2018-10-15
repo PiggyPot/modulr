@@ -8,9 +8,8 @@ use Mix.Config
 # if you want to provide default values for your application for
 # 3rd-party users, it should be done in your "mix.exs" file.
 
-# You can configure your application as:
-#
-#     config :modulr, key: :value
+import_config "secret.exs"
+
 #
 # and access this configuration in your application as:
 #

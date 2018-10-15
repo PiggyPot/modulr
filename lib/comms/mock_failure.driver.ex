@@ -6,8 +6,4 @@ defmodule Modulr.Comms.MockFailureDriver do
   def request(:post, "/customers", params) do
     {:error, ""}
   end
-
-  def request(:put, "/customers", body) do
-    {:error, ""}
-  end
 end

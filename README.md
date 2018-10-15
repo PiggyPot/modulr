@@ -1,21 +1,43 @@
 # Modulr
 
-**TODO: Add description**
+Elixir wrapper for the Modulr API.
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `modulr` to your list of dependencies in `mix.exs`:
+1. Add `modulr` to your list of dependencies in mix.exs:
 
 ```elixir
 def deps do
-  [
-    {:modulr, "~> 0.1.0"}
-  ]
+  [{:modulr, "~> 0.1.0"}]
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/modulr](https://hexdocs.pm/modulr).
+then...
 
+```elixir
+mix deps.get
+```
+
+2. Add configuration to your app:
+
+```elixir
+config :modulr,
+  api_base: "https://api-sandbox.modulrfinance.com/api-sandbox/ ",
+  api_version: "1",
+  api_key: "<your-api-key>",
+  api_hmac: "<your-hmac>"
+```
+
+## For more information, see the Hex docs
+
+You can read the docs [here](https://hexdocs.pm/modulr)
+
+## Development Setup
+
+If you are making changes to this codebase and want to test your code, you will need to copy the sample secret file.
+
+```elixir
+cp config/secret.sample.exs config/secret.exs
+```
+
+Then add your relevant Modulr access details here.

@@ -6,7 +6,7 @@ defmodule Modulr.Resources.Customer do
   end
 
   def get(id, driver \\ Comms.HttpDriver) do
-    driver.request(:get, "/customers/#{id}")
+    driver.request(:get, "/customers/#{id}", %{})
   end
 
   def create(params, driver \\ Comms.HttpDriver) do

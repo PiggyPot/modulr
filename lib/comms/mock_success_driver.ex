@@ -67,6 +67,10 @@ defmodule Modulr.Comms.MockSuccessDriver do
   # Account Endpoints
   ##############################################
 
+  def generate_response(:get, ["accounts", id], _) do
+    {:ok, get_in_state(:accounts, id)}
+  end
+
   def generate_response(:post, ["customers", cid, "accounts"], params) do
     Agent.update(__MODULE__, fn state ->
       new_id = "C" <> Integer.to_string(:rand.uniform(10000))
@@ -83,10 +87,12 @@ defmodule Modulr.Comms.MockSuccessDriver do
   def generate_response(:post, ["credit"], params) do
     Agent.update(__MODULE__, fn state ->
       model_instance = state[:accounts][params.accountId]
+      current_balance = model_instance.balance |> String.to_float()
+      new_balance = (current_balance + params.amount) |> Float.to_string()
 
       put_in(
         state[:accounts][params.accountId],
-        Map.merge(model_instance, %{amount: params.amount})
+        Map.merge(model_instance, %{balance: new_balance})
       )
     end)
 

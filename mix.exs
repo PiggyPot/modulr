@@ -16,7 +16,7 @@ defmodule Modulr.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:logger, :httpotion]
+      extra_applications: [:logger]
     ]
   end
 
@@ -24,8 +24,9 @@ defmodule Modulr.MixProject do
   defp deps do
     [
       {:ex_doc, "~> 0.18.0", only: :dev, runtime: false},
-      {:httpotion, "~> 3.1.0"},
-      {:poison, "~> 3.0"}
+      {:httpoison, "~> 1.0"},
+      {:timex, "~> 3.1"},
+      {:elixir_uuid, "~> 1.2"}
     ]
   end
 

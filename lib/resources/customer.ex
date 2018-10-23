@@ -1,12 +1,12 @@
 defmodule Modulr.Resources.Customer do
   alias Modulr.Comms
 
-  def list(params, driver \\ Comms.HttpDriver) do
+  def list(params \\ %{}, driver \\ Comms.HttpDriver) do
     driver.request(:get, "/customers", params)
   end
 
-  def get(id, driver \\ Comms.HttpDriver) do
-    driver.request(:get, "/customers/#{id}", %{})
+  def get(id, params \\ %{}, driver \\ Comms.HttpDriver) do
+    driver.request(:get, "/customers/#{id}", params)
   end
 
   def create(params, driver \\ Comms.HttpDriver) do

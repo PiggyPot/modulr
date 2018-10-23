@@ -58,8 +58,9 @@ defmodule Modulr.Comms.HttpDriver do
     UUID.uuid1()
   end
 
-  defp rfc_7231_date do
-    DateTime.utc_now()
+  def rfc_7231_date do
+    Timex.now()
+    |> Timex.Timezone.convert("GMT")
     |> Timex.format!("%a, %d %b %Y %H:%M:%S %Z", :strftime)
   end
 

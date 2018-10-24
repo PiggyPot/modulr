@@ -2,9 +2,14 @@ defmodule Modulr.Comms.HttpDriver do
   def request(:get, path, params) do
     url_params = params |> URI.encode_query()
 
-    "#{path}?#{url_params}"
-    |> api_url()
-    |> HTTPoison.get(headers(), options())
+    {:ok, req} =
+      "#{path}?#{url_params}"
+      |> api_url()
+      |> HTTPoison.get(headers(), options())
+
+    IO.inspect(req.body)
+
+    {:ok, req}
   end
 
   def request(:post, path, body) do
@@ -33,6 +38,7 @@ defmodule Modulr.Comms.HttpDriver do
 
     [
       Date: date_header,
+      "Content-Type": "application/json",
       "x-mod-nonce": nonce_header,
       "x-mod-version": api_version(),
       Authorization: auth_header
@@ -51,7 +57,8 @@ defmodule Modulr.Comms.HttpDriver do
 
   defp create_signature(date, nonce) do
     :crypto.hmac(:sha, api_hmac(), "date: #{date}\nx-mod-nonce: #{nonce}")
-    |> Base.url_encode64()
+    |> Base.encode64()
+    |> URI.encode(&URI.char_unreserved?/1)
   end
 
   defp create_nonce_header do

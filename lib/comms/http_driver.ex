@@ -2,26 +2,24 @@ defmodule Modulr.Comms.HttpDriver do
   def request(:get, path, params) do
     url_params = params |> URI.encode_query()
 
-    {:ok, req} =
-      "#{path}?#{url_params}"
-      |> api_url()
-      |> HTTPoison.get(headers(), options())
-
-    IO.inspect(req.body)
-
-    {:ok, req}
+    "#{path}?#{url_params}"
+    |> api_url()
+    |> HTTPoison.get(headers(), options())
+    |> decode_json()
   end
 
   def request(:post, path, body) do
     path
     |> api_url()
     |> HTTPoison.post(body, headers(), options())
+    |> decode_json()
   end
 
   def request(:put, path, body) do
     path
     |> api_url()
     |> HTTPoison.put(body, headers(), options())
+    |> decode_json()
   end
 
   defp api_url(url) do
@@ -48,6 +46,33 @@ defmodule Modulr.Comms.HttpDriver do
   defp options do
     [ssl: [{:versions, [:"tlsv1.2"]}]]
   end
+
+  defp decode_json({:ok, resp_map}) do
+    case resp_map.body do
+      "" -> {:ok, "No Body"}
+      body -> Poison.decode(body)
+    end
+    |> create_response(resp_map)
+  end
+
+  defp decode_json({:error, error}) do
+    case error do
+      "" -> {:error, "Something went wrong"}
+      e -> Poison.decode(e)
+    end
+  end
+
+  defp create_response({:ok, body}, resp_map) do
+    case resp_map.status_code do
+      x when x in [200, 201, 204] ->
+        {:ok, body}
+
+      _ ->
+        {:error, body}
+    end
+  end
+
+  defp create_response({:error, _}, _), do: {:error, "There was an issue decoding the body"}
 
   defp auth_header(sig) do
     "Signature keyId=\"#{api_key()}\",algorithm=\"hmac-sha1\",headers=\"date x-mod-nonce\",signature=\"#{

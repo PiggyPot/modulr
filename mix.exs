@@ -26,7 +26,8 @@ defmodule Modulr.MixProject do
       {:ex_doc, "~> 0.18.0", only: :dev, runtime: false},
       {:httpoison, "~> 1.0"},
       {:timex, "~> 3.1"},
-      {:elixir_uuid, "~> 1.2"}
+      {:elixir_uuid, "~> 1.2"},
+      {:poison, "~> 3.1"}
     ]
   end
 

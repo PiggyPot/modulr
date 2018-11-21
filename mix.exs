@@ -7,7 +7,7 @@ defmodule Modulr.MixProject do
       version: "0.1.0",
       description: "Elixir wrapper for the Modulr API",
       package: package(),
-      elixir: "~> 1.6",
+      elixir: "~> 1.7",
       start_permanent: Mix.env() == :prod,
       deps: deps()
     ]

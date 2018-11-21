@@ -8,17 +8,17 @@ defmodule Modulr.Comms.HttpDriver do
     |> decode_json()
   end
 
-  def request(:post, path, body) do
+  def request(:post, path, params) do
     path
     |> api_url()
-    |> HTTPoison.post(body, headers(), options())
+    |> HTTPoison.post(Poison.encode!(params), headers(), options())
     |> decode_json()
   end
 
-  def request(:put, path, body) do
+  def request(:put, path, params) do
     path
     |> api_url()
-    |> HTTPoison.put(body, headers(), options())
+    |> HTTPoison.put(Poison.encode!(params), headers(), options())
     |> decode_json()
   end
 
@@ -36,7 +36,7 @@ defmodule Modulr.Comms.HttpDriver do
 
     [
       Date: date_header,
-      "Content-Type": "application/json",
+      "Content-Type": "application/json;charset=UTF-8",
       "x-mod-nonce": nonce_header,
       "x-mod-version": api_version(),
       Authorization: auth_header

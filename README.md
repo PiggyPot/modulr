@@ -1,6 +1,6 @@
 # Modulr
 
-WIP - NOT YET READY TO USE. Elixir wrapper for the Modulr API.
+Elixir wrapper for the Modulr API.
 
 ## Installation
 

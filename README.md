@@ -8,7 +8,7 @@ Elixir wrapper for the Modulr API.
 
 ```elixir
 def deps do
-  [{:modulr, "~> 0.1.0"}]
+  [{:modulr, "~> 0.2.0"}]
 end
 ```
 

@@ -28,9 +28,14 @@ config :modulr,
   api_hmac: "<your-hmac>"
 ```
 
-## For more information, see the Hex docs
+## Documentation
 
-You can read the docs [here](https://hexdocs.pm/modulr)
+[Managing Customers](https://hexdocs.pm/modulr/Modulr.Resources.Customer.html)
+[Managing Accounts](https://hexdocs.pm/modulr/Modulr.Resources.Account.html)
+[Managing Notifications](https://hexdocs.pm/modulr/Modulr.Resources.Notification.html)
+[Mock Inbound Payments](https://hexdocs.pm/modulr/Modulr.Resources.InboundPayment.html)
+
+You can read the docs [at hex.pm](https://hexdocs.pm/modulr)
 
 ## Development Setup
 

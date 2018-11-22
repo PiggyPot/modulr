@@ -33,7 +33,7 @@ config :modulr,
 [Managing Customers](https://hexdocs.pm/modulr/Modulr.Resources.Customer.html)\
 [Managing Accounts](https://hexdocs.pm/modulr/Modulr.Resources.Account.html)\
 [Managing Notifications](https://hexdocs.pm/modulr/Modulr.Resources.Notification.html)\
-[Mock Inbound Payments](https://hexdocs.pm/modulr/Modulr.Resources.InboundPayment.html)\
+[Mock Inbound Payments](https://hexdocs.pm/modulr/Modulr.Resources.InboundPayment.html)
 
 You can read the docs [at hex.pm](https://hexdocs.pm/modulr)
 

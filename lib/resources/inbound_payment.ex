@@ -7,21 +7,21 @@ defmodule Modulr.Resources.InboundPayment do
   ## Examples
 
         Modulr.Resources.InboundPayment.create(%{
-          type: "PI_FAST", 
-          description: "some desc", 
+          type: "PI_FAST",
+          description: "some desc",
           accountId: "A123B123", 
-          amount: 20, 
+          amount: 20,
           payerDetail: %{
-            name: "Joe Bloggs", 
+            name: "Joe Bloggs",
             address: %{
-              addressLine1: "1 Here Street", 
-              country: "GB", 
-              postCode: "L1 1LB", 
+              addressLine1: "1 Here Street",
+              country: "GB",
+              postCode: "L1 1LB",
               postTown: "London"
-            }, 
+            },
             identifier: %{
-              accountNumber: "12345678", 
-              sortCode: "000000", 
+              accountNumber: "12345678",
+              sortCode: "000000",
               type: "SCAN"
             }
           }

@@ -15,21 +15,22 @@ defmodule Modulr.Resources.Customer do
   ### Example
 
         Modulr.Resources.Customer.create(%{
-          applicant: true, 
-          type: "INDIVIDUAL", 
-          expectedMonthlySpend: 20000, 
-          tcsVersion: 1, 
+          expectedMonthlySpend: 20000,
+          type: "INDIVIDUAL",
+          tcsVersion: 1,
           associates: [%{
-            firstName: "Joe", 
-            lastName: "Bloggs", 
-            dateOfBirth: "1995-04-24", 
+            applicant: true,
             type: "INDIVIDUAL",
-            email: "joe@bloggs.com", 
-            phone: "0123123123123", 
+            firstName: "Joe",
+            lastName: "Bloggs",
+            dateOfBirth: "1995-04-24",
+            type: "INDIVIDUAL",
+            email: "joe@bloggs.com",
+            phone: "0123123123123",
             homeAddress: %{
-              addressLine1: "1 Here Street, 
-              country: "GB", 
-              postCode: "L1 1AB", 
+              addressLine1: "1 Here Street",
+              country: "GB",
+              postCode: "L1 1AB",
               postTown: "London"
             }
           }]

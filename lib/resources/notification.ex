@@ -29,14 +29,14 @@ defmodule Modulr.Resources.Notification do
   ## Example
 
         Modulr.Resources.Notification.create_for_customer("C123456", %{
-          channel: "WEBHOOK",
+          channel: "WEBHOOK", 
           config: %{
-            retry: true,
-            secret: "01234567890123456789012345678912"},
-            destinations: ["https://yourserver/endpoint"], 
-            type: "PAYIN"
-          }
-        )
+            retry: true, 
+            secret: "12345678901234567890123456789012"
+          }, 
+          destinations: ["https://postb.in/Lg6OU5jy"], 
+          type: "PAYIN"
+        })
   """
   def create_for_customer(cid, params, driver \\ Comms.HttpDriver) do
     driver.request(:post, "/customers/#{cid}/notifications", params)

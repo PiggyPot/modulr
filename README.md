@@ -8,7 +8,7 @@ Elixir wrapper for the Modulr API.
 
 ```elixir
 def deps do
-  [{:modulr, "~> 0.2.1"}]
+  [{:modulr, "~> 0.3.1"}]
 end
 ```
 
@@ -32,6 +32,7 @@ config :modulr,
 
 [Managing Customers](https://hexdocs.pm/modulr/Modulr.Resources.Customer.html)\
 [Managing Accounts](https://hexdocs.pm/modulr/Modulr.Resources.Account.html)\
+[Managing Beneficiaries](https://hexdocs.pm/modulr/Modulr.Resources.Beneficiary.html)\
 [Managing Payments](https://hexdocs.pm/modulr/Modulr.Resources.Payment.html)\
 [Managing Notifications](https://hexdocs.pm/modulr/Modulr.Resources.Notification.html)\
 [Mock Inbound Payments](https://hexdocs.pm/modulr/Modulr.Resources.InboundPayment.html)

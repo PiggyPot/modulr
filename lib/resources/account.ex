@@ -1,6 +1,10 @@
 defmodule Modulr.Resources.Account do
   alias Modulr.Comms
 
+  def list(params \\ %{}, driver \\ Comms.HttpDriver) do
+    driver.request(:get, "/accounts", params)
+  end
+
   def get(id, params \\ %{}, driver \\ Comms.HttpDriver) do
     driver.request(:get, "/accounts/#{id}", params)
   end

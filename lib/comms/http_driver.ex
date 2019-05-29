@@ -72,7 +72,10 @@ defmodule Modulr.Comms.HttpDriver do
     end
   end
 
-  defp create_response({:error, _}, _), do: {:error, "There was an issue decoding the body"}
+  defp create_response({:error, error}, _) do
+    Logger.info("#{inspect(error)}")
+    {:error, "There was an issue decoding the body"}
+  end
 
   defp auth_header(sig) do
     "Signature keyId=\"#{api_key()}\",algorithm=\"hmac-sha1\",headers=\"date x-mod-nonce\",signature=\"#{

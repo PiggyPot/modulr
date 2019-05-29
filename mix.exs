@@ -4,7 +4,7 @@ defmodule Modulr.MixProject do
   def project do
     [
       app: :modulr,
-      version: "0.4.1",
+      version: "0.4.2",
       description: "Elixir wrapper for the Modulr API",
       package: package(),
       elixir: "~> 1.7",

@@ -1,4 +1,6 @@
 defmodule Modulr.Comms.HttpDriver do
+  require Logger
+
   def request(:get, path, params) do
     url_params = params |> URI.encode_query()
 

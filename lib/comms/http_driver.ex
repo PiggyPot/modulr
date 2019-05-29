@@ -76,8 +76,8 @@ defmodule Modulr.Comms.HttpDriver do
     end
   end
 
-  defp create_response({:error, error}, _) do
-    Logger.info("create_response: #{inspect(error)}")
+  defp create_response({:error, error}, resp_body) do
+    Logger.info("create_response: #{inspect(error)}, response body: #{inspect(resp_body)}")
     {:error, "There was an issue decoding the body"}
   end
 

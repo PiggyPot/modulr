@@ -58,6 +58,8 @@ defmodule Modulr.Comms.HttpDriver do
   end
 
   defp decode_json({:error, error}) do
+    Logger.info("decode_json: #{inspect(error)}")
+
     case error do
       "" -> {:error, "Something went wrong"}
       e -> Poison.decode(e)
@@ -75,7 +77,7 @@ defmodule Modulr.Comms.HttpDriver do
   end
 
   defp create_response({:error, error}, _) do
-    Logger.info("#{inspect(error)}")
+    Logger.info("create_response: #{inspect(error)}")
     {:error, "There was an issue decoding the body"}
   end
 
